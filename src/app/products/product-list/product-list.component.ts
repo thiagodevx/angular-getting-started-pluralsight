@@ -10,6 +10,7 @@ export class ProductListComponent implements OnInit {
 
   pageTitle = 'Product  List';
   showImage = true;
+  listFilter: string;
   products: Product[] = JSON.parse(`[
     {
       "productId": 1,
