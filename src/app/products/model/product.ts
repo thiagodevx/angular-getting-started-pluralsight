@@ -4,4 +4,5 @@ export class Product {
   releaseDate: string;
   price: number;
   starRating: number;
+  imageUrl: string;
 }
