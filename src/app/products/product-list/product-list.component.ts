@@ -9,6 +9,7 @@ import { Product } from '../model/product';
 export class ProductListComponent implements OnInit {
 
   pageTitle = 'Product  List';
+  showImage = true;
   products: Product[] = JSON.parse(`[
     {
       "productId": 1,
@@ -63,6 +64,10 @@ export class ProductListComponent implements OnInit {
   ]`);
 
   constructor() { }
+
+  toggleImage() {
+    this.showImage = !this.showImage;
+  }
 
   ngOnInit() {
   }
