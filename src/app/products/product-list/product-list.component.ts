@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'pm-product-list',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
+  pageTitle: string = 'Product  List'
+  product: Product = []
+  
   constructor() { }
 
   ngOnInit() {
