@@ -10,7 +10,8 @@ export class ProductListComponent implements OnInit {
 
   pageTitle = 'Product  List';
   showImage = true;
-  listFilter: string;
+  _listFilter: string;
+  filteredProducts: Product[] = [];
   products: Product[] = JSON.parse(`[
     {
       "productId": 1,
@@ -66,11 +67,27 @@ export class ProductListComponent implements OnInit {
 
   constructor() { }
 
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(listFilter) {
+    this._listFilter = listFilter;
+    this.filteredProducts = this.listFilter ? this.performFilter() : this.products;
+  }
+
+  performFilter(): Product[] {
+    const byLowerCaseName = product => product.productName.toLowerCase().indexOf(this.listFilter.toLowerCase()) !== -1;
+    const filtered = this.products.filter(byLowerCaseName);
+    return filtered;
+  }
+
   toggleImage() {
     this.showImage = !this.showImage;
   }
 
   ngOnInit() {
+    this.filteredProducts = this.products;
   }
 
 }

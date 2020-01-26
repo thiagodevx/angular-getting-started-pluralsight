@@ -7,7 +7,11 @@ import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, ProductListComponent, ConvertToSpacesPipe],
+  declarations: [
+    AppComponent,
+    ProductListComponent,
+    ConvertToSpacesPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
