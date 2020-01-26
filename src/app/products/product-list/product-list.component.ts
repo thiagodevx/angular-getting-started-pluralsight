@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pm-product-list',
@@ -16,6 +15,7 @@ export class ProductListComponent implements OnInit {
   _listFilter: string;
   filteredProducts: Product[] = [];
   products: Product[] = [];
+  errorMessage: string;
 
   constructor(private productService: ProductService) { }
 
@@ -42,9 +42,13 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    const productObservable: Observable<Product[]> = this.productService.getProducts();
-    this.products = [];
-    this.performFilter();
+    this.productService.getProducts().subscribe({
+      next: products => {
+        this.products = products;
+        this.performFilter();
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
   onNotify(event: number) {
