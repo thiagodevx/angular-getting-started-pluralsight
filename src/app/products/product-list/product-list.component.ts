@@ -10,6 +10,7 @@ export class ProductListComponent implements OnInit {
 
   pageTitle = 'Product  List';
   showImage = true;
+  ratingsSelected: number;
   _listFilter: string;
   filteredProducts: Product[] = [];
   products: Product[] = JSON.parse(`[
@@ -93,8 +94,8 @@ export class ProductListComponent implements OnInit {
     this.performFilter();
   }
 
-  onNotify(event) {
-    console.log(`Notification from ${event}`);
+  onNotify(event: number) {
+    this.ratingsSelected = event;
   }
 
 }
