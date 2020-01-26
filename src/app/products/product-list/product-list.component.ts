@@ -73,13 +73,16 @@ export class ProductListComponent implements OnInit {
 
   set listFilter(listFilter) {
     this._listFilter = listFilter;
-    this.filteredProducts = this.listFilter ? this.performFilter() : this.products;
+    this.performFilter();
   }
 
-  performFilter(): Product[] {
-    const byLowerCaseName = product => product.productName.toLowerCase().indexOf(this.listFilter.toLowerCase()) !== -1;
-    const filtered = this.products.filter(byLowerCaseName);
-    return filtered;
+  performFilter() {
+    if (this.listFilter) {
+      const filterByName = (product: Product) => product.productName.toLowerCase().indexOf(this.listFilter.toLowerCase()) !== -1;
+      this.filteredProducts = this.products.filter(filterByName);
+    } else {
+      this.filteredProducts = this.products;
+    }
   }
 
   toggleImage() {
@@ -87,7 +90,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredProducts = this.products;
+    this.performFilter();
   }
 
 }
