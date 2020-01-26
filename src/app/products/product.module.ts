@@ -15,13 +15,9 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductDetailComponent,
-    ConvertToSpacesPipe,
-    StarComponent
+    ProductDetailComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     SharedModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
