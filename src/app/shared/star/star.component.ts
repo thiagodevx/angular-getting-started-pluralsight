@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'pm-star',
@@ -7,8 +7,8 @@ import { Component, OnChanges } from '@angular/core';
 })
 export class StarComponent implements OnChanges {
 
-  rating = 4;
-  starWidth = 75;
+  @Input() rating = 4;
+  private _starWidth = 75;
 
   constructor() { }
 
@@ -19,7 +19,10 @@ export class StarComponent implements OnChanges {
   showStars() {
     const defaultValue = 75;
     const totalStars = 5;
-    this.starWidth = this.rating * defaultValue / totalStars;
+    this._starWidth = this.rating * defaultValue / totalStars;
   }
 
+  get starWidth() {
+    return this._starWidth;
+  }
 }
