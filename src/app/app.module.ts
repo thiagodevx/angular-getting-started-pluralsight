@@ -15,7 +15,6 @@ import { ProductService } from './products/services/product.service';
     ConvertToSpacesPipe,
     StarComponent
   ],
-  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
