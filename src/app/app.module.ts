@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './home/welcome.component';
-import { ProductModule } from './products/product/product.module';
+import { ProductModule } from './products/product.module';
 
 @NgModule({
   imports: [
