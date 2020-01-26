@@ -7,6 +7,7 @@ import { StarComponent } from 'src/app/shared/star/star.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProductDetailGuard } from '../product-detail/product-detail.guard';
 
 
 
@@ -20,7 +21,10 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forChild([
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] },
+    ]),
     BrowserModule
   ]
 })
