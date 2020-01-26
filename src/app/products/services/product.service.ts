@@ -24,8 +24,16 @@ export class ProductService {
     return throwError(errorMessage);
   }
 
-  findById(productId: string): Product {
-    this.http.get<Product>(this.productUrl);
-    throw new Error("Method not implemented.");
+  findById(productId: number): Product {
+    return {
+      productId: 8,
+      productName: 'Saw',
+      productCode: 'TBX-0022',
+      releaseDate: 'May 15, 2019',
+      description: '15-inch steel blade hand saw',
+      price: 11.55,
+      starRating: 3.7,
+      imageUrl: 'assets/images/saw.png'
+    };
   }
 }
