@@ -10,11 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailGuard } from './products/product-detail/product-detail.guard';
+import { ProductModule } from './products/product/product.module';
 
 @NgModule({
   imports: [
+    ProductModule,
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductListComponent },
@@ -26,10 +27,6 @@ import { ProductDetailGuard } from './products/product-detail/product-detail.gua
   ],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacesPipe,
-    StarComponent,
-    ProductDetailComponent,
     WelcomeComponent
   ],
   bootstrap: [AppComponent]
