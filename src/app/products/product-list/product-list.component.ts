@@ -93,4 +93,8 @@ export class ProductListComponent implements OnInit {
     this.performFilter();
   }
 
+  onNotify(event) {
+    console.log(`Notification from ${event}`);
+  }
+
 }
