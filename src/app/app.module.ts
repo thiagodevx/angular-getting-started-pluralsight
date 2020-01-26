@@ -6,6 +6,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star/star.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent
   ],
   bootstrap: [AppComponent]
 })
