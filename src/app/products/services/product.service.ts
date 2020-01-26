@@ -9,6 +9,7 @@ import {catchError, tap} from 'rxjs/operators';
 export class ProductService {
 
   private productUrl = 'api/products/products.json';
+
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
@@ -21,5 +22,10 @@ export class ProductService {
   handleError(error: HttpErrorResponse): Observable<Product[]> {
     const errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
     return throwError(errorMessage);
+  }
+
+  findById(productId: string): Product {
+    this.http.get<Product>(this.productUrl);
+    throw new Error("Method not implemented.");
   }
 }
