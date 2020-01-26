@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star/star.component';
+import { ProductService } from './products/services/product.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -14,6 +15,7 @@ import { StarComponent } from './shared/star/star.component';
     ConvertToSpacesPipe,
     StarComponent
   ],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
