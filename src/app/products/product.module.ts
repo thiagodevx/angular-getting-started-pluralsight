@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { ProductDetailGuard } from './product-detail/product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
+import { ProductRoutingModule } from './route/product-routing.module';
 
 
 
@@ -15,10 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     SharedModule,
-    RouterModule.forChild([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] },
-    ]),
+    ProductRoutingModule,
     BrowserModule
   ]
 })
